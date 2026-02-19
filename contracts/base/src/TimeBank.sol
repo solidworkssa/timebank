@@ -2,8 +2,11 @@
 pragma solidity ^0.8.20;
 
 /// @title TimeBank Contract
+/// @author solidworkssa
 /// @notice Time-based skill exchange platform.
 contract TimeBank {
+    string public constant VERSION = "1.0.0";
+
 
     mapping(address => uint256) public credits;
     
