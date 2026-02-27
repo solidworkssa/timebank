@@ -26,9 +26,9 @@
 )
 
 (define-public (transfer (recipient principal) (amount uint))
-    (let ((balance (default-to u0 (map-get? credits tx-sender))))
+    (let ((balance (default-to u0 (map-get? credits contract-caller))))
         (asserts! (>= balance amount) (err u100))
-        (map-set credits tx-sender (- balance amount))
+        (map-set credits contract-caller (- balance amount))
         (map-set credits recipient (+ (default-to u0 (map-get? credits recipient)) amount))
         (ok true)
     )
